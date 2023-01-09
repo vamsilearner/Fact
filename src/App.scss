@@ -1,0 +1,261 @@
+.App {
+  text-align: center !important;
+}
+.card {
+  width: 200px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 20px;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.collapsiblepanel {
+  border: 1px solid #e2e2e2;
+  background: #eee;
+  border-radius: .5em;
+}
+
+.collapsiblepanel-header {
+  padding: .7em;
+  outline: none;
+  cursor: pointer;
+}
+
+.collapsiblepanel-header-inner-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collapsiblepanel-header-left-part,
+.collapsiblepanel-header-right-part {
+  display: flex;
+  align-items: center;
+}
+
+.collapsiblepanel-header-right-part-wrapper {
+  display: flex;
+}
+
+.collapsiblepanel-header-inner-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collapsiblepanel-header-title {
+  color: #666;
+  font-weight: 600;
+}
+
+.collapsiblepanel-header-sub-title,
+.collapsiblepanel-header-right-widget {
+  color: #666;
+  font-weight: 100;
+  font-size: .7em;
+}
+
+.collapsiblepanel-toggle-button {
+  margin-left: .7em;
+  width: 40px;
+  padding: 0;
+
+  -webkit-appearance: button;
+  text-transform: none;
+  display: inline-block;
+  font-size: 1em;
+  line-height: .8em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border .15s ease-in, color .15s ease-in, background .15s ease-in, box-shadow .15s ease-in;
+  color: #889dba;
+  background: none;
+  border: none;
+
+  .ft-icon {
+      font-size: 1em;
+      display: inline-block;
+      line-height: 1em;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      speak: none;
+      line-height: 1em;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: block;
+      text-align: center;
+  }
+
+}
+
+.collapsiblepanel-content {
+  height: 0;
+  overflow: hidden;
+}
+
+.collapsiblepanel-content-expanded>.collapsiblepanel-content {
+  border-top: 1px solid #e2e2e2;
+  padding: .7em;
+  overflow: auto;
+  height: auto;
+}
+
+.collapsiblepanel .ft-btn .ft-icon:before {
+  content: "\25bc";
+}
+
+.collapsiblepanel.collapsiblepanel-content-expanded .ft-btn .ft-icon:before {
+  content: "\25b2";
+}
+
+
+.diary-step {
+  background-color:  #888;
+  color: white;
+  display: flex;
+  flex-direction: row;
+
+  .step-infos {
+      position: relative;
+      display: flex;
+      width: 1.3em;
+
+      .step {
+          position: relative;
+          z-index: 3;
+          background-color: white;
+          color:  #888;
+          border: 2px solid  #888;
+          line-height: 1.3em;
+          width: 1.3em;
+          height: 1.3em;
+          flex: 0 0 auto;
+          border-radius: 100%;
+          text-align: center;
+          align-self: center;
+      }
+
+      svg {
+          z-index: 2;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          width: .8em;
+          height: 100%;
+          fill:  #888;
+      }
+
+      .timeline-step {
+          z-index: 1;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: .6em;
+          height: "calc(100% + 1em)";
+          width: 4px;
+          background-color: lighten( #888, 10%);
+      }
+  }
+
+  .producer-infos {
+      width: 35%;
+      min-width: 10em;
+      padding: 1em;
+      flex: 0 1 auto;
+      border-right: 1px dashed white;
+      background-color:  #888;
+
+      .producer-infos-title {
+          font-size: 1.2em;
+
+          span:first-child {
+              font-weight: bold;
+          }
+
+          span:last-child {
+              font-weight: light;
+          }
+      }
+
+      .producer-infos-desc {
+          font-size: .8em;
+          font-weight: light;
+
+      }
+  }
+
+  .meta-infos {
+      padding: 1em;
+      flex: 1 1 auto;
+      background-color:  #888;
+
+      .meta-infos-key {}
+
+      .meta-infos-value {
+          margin-top: .5em;
+      }
+
+      .tag {
+          display: inline-block;
+          position: relative;
+          padding: .2em .6em;
+          margin: 0 0 0 .2em;
+          max-width: 100%;
+          font-size: .7em;
+          font-weight: 100;
+          vertical-align: middle;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: #444;
+          background-color: #eee;
+          border-radius: 1em;
+
+          &.change {
+              background-color: #2196f3;
+              color: white;
+          }
+      }
+  }
+
+  &:not(:first-child) {
+      margin-top: 1em;
+  }
+
+  &:nth-of-type(even) {
+
+      .producer-infos,
+      .meta-infos {
+          background-color: darken( #888 , 15%);
+      }
+
+      .step {
+          color: darken( #888 , 15%);
+          border-color: darken( #888 , 15%);
+      }
+
+      svg {
+          fill: darken( #888 , 15%);
+      }
+  }
+
+  &:first-child {
+      .timeline-step {
+          top: 50%;
+          height: "calc(50% + 1em)";
+      }
+  }
+
+  &:last-child {
+      .timeline-step {
+          bottom: 50%;
+          height: "calc(50%)";
+      }
+  }
+}
